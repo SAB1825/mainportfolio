@@ -1,7 +1,7 @@
 import logo from "./images/logo.png";
-import profileImg from "./images/profile.png";
-import amazonImg from "./images/amazonImg.png";
-import cyberImg from "./images/cyberBlog.png";
+import profileImg from "./images/profile.jpg";
+import fitnessApp from "./images/fitnessApp.png";
+import blog from "./images/blog.png";
 import noorShop from "./images/noorShop.png";
 
-export { logo, profileImg, amazonImg, cyberImg, noorShop };
+export { logo, profileImg, fitnessApp, blog, noorShop };

@@ -24,21 +24,7 @@ const Banner = () => {
           a student with a Creative Edge.
         </span>
       </motion.h1>
-      <motion.p
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-        className="text-base md:max-w-[650px] text-textDark font-medium"
-      >
-       I'm a Mechanical Engineering student with a knack for coding and a strong passion for design. Currently, I'm pursuing my degree in Mechanical Engineering, where I delve into the world of gears, equations, and innovation.{" "}
-        <a href="https://www.relaxingcolors.pro/" target="_blank">
-          {" "}
-          <span className="text-textGreen inline-flex relative cursor-pointer h-7 overflow-x-hidden group">
-            Learn more
-            <span className="absolute w-full h-[1px] bg-textGreen left-0 bottom-1 -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500"></span>
-          </span>
-        </a>
-      </motion.p>
+      
       <a href="https://github.com/SAB1825" target="_blank">
         <motion.button
           initial={{ y: 10, opacity: 0 }}

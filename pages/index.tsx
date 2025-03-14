@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import LeftSide from "@/components/LeftSide";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
-import RightSide from "@/components/RightSide";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import Archive from "@/components/Archive";
@@ -45,7 +44,6 @@ export default function Home() {
             transition={{ delay: 1.5 }}
             className="hidden xl:inline-flex w-32 h-full fixed right-0 bottom-0"
           >
-            <RightSide />
           </motion.div>
         </div>
       </main>

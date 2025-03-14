@@ -12,6 +12,7 @@ import {
 } from "react-icons/sl";
 import { MdOutlineClose } from "react-icons/md";
 import { motion } from "framer-motion";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const ref = useRef<string | any>("");
@@ -42,18 +43,8 @@ const Navbar = () => {
   return (
     <div className="w-full shadow-navbarShadow h-20 lg:h-[12vh] sticky top-0 z-50 bg-bodyColor px-4">
       <div className="max-w-container h-full mx-auto py-1 font-titleFont flex items-center justify-between ">
-        {/* ============ Logo Start here ============ */}
-        <Link href="/">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.1 }}
-          >
-            <Image className="w-14" src={logo} alt="logo" />
-          </motion.div>
-        </Link>
-        {/* ============ Logo End here ============== */}
-        {/* ============ ListItem Start here ======== */}
+        <Logo />
+        
         <div className="hidden mdl:inline-flex items-center gap-7">
           <ul className="flex text-[13px] gap-7">
             <Link
@@ -114,7 +105,7 @@ const Navbar = () => {
               </motion.li>
             </Link>
           </ul>
-          <a href="/assets/Resume-Sabari.pdf" target="_blank">
+          <a href="./SABARI - RESUME - WITHSIGN.pdf" target="_blank">
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -232,17 +223,7 @@ const Navbar = () => {
                       <TbBrandGithub />
                     </span>
                   </motion.a>
-                  <motion.a
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.85, ease: "easeIn" }}
-                    href="https://www.youtube.com/channel/user-dh2wc6tk4d"
-                    target="_blank"
-                  >
-                    <span className="w-10 h-10 text-xl bg-bodyColor border-[1px] border-zinc-700 hover:border-textGreen text-zinc-200 rounded-full inline-flex items-center justify-center hover:text-textGreen cursor-pointer hover:-translate-y-2 transition-all duration-300">
-                      <SlSocialYoutube />
-                    </span>
-                  </motion.a>
+                  
                   <motion.a
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -254,28 +235,6 @@ const Navbar = () => {
                       <SlSocialLinkedin />
                     </span>
                   </motion.a>
-                  <motion.a
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.95, ease: "easeIn" }}
-                    href="https://www.facebook.com/profile.php?id=100014451306758"
-                    target="_blank"
-                  >
-                    <span className="w-10 h-10 text-xl bg-bodyColor border-[1px] border-zinc-700 hover:border-textGreen text-zinc-200 rounded-full inline-flex items-center justify-center hover:text-textGreen cursor-pointer hover:-translate-y-2 transition-all duration-300">
-                      <SlSocialFacebook />
-                    </span>
-                  </motion.a>
-                  <motion.a
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1, ease: "easeIn" }}
-                    href="https://instagram.com/star_boy___01?igshid=NGVhN2U2NjQ0Yg=="
-                    target="_blank"
-                  >
-                    <span className="w-10 h-10 text-xl bg-bodyColor border-[1px] border-zinc-700 hover:border-textGreen text-zinc-200 rounded-full inline-flex items-center justify-center hover:text-textGreen cursor-pointer hover:-translate-y-2 transition-all duration-300">
-                      <SlSocialInstagram />
-                    </span>
-                  </motion.a>
                 </div>
               </div>
 
@@ -283,7 +242,7 @@ const Navbar = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, ease: "easeIn" }}
-                className="text-sm w-72 tracking-widest text-textGreen text-center mt-4"
+                className="text-sm w-70 tracking-widest text-textGreen text-center mt-3"
                 href="mailto:sabarisekar777@gmail.com"
               >
                 <p>sabarisekar777@gmail.com</p>
@@ -291,9 +250,7 @@ const Navbar = () => {
             </motion.div>
           </div>
         )}
-        {/* ============== Small Icon End here ============= */}
-
-        {/* ============ ListItem End here ========== */}
+        
       </div>
     </div>
   );

@@ -1,177 +1,127 @@
-import { amazonImg, cyberImg, noorShop } from "@/public/assets";
-import Image from "next/image";
-import { AiOutlineYoutube } from "react-icons/ai";
-import { TbBrandGithub } from "react-icons/tb";
-import SectionTitle from "./SectionTitle";
-import { RxOpenInNewWindow } from "react-icons/rx";
+"use client"
 
-const Projects = () => {
+import { useState } from "react"
+import SectionTitle from "./SectionTitle"
+import ProjectCard from "./project-card"
+
+// Import your images
+// import { amazonImg, cyberImg, noorShop } from "@/public/assets";
+
+const projectsData = [
+  {
+    id: 1,
+    title: "Fitness Workout App",
+    description:
+      "A fitness Exercise app which renders workouts from Rapid Api. With the functionality to choose exercise categories and specific muscle groups, browse more than one thousand exercises with practical examples, pagination, exercise details, pull related videos from youtube, display similar exercises, and much more.",
+    image: "/assets/images/fitnessApp.png", 
+    tech: ["React", "Rapid API", "CSS", "Netlify Deployment"],
+    github: "https://github.com/SAB1825/fitness-website",
+    demo: "https://sabari-fitness.netlify.app",
+    featured: false,
+  },
+  {
+    id: 2,
+    title: "Responsive Blog - Frontend",
+    description:
+      "A Responsive Blog which is made with HTML and CSS and some basic Javascript. It has some stunning css with multipage function.",
+    image: "/assets/images/blog.png", 
+    tech: ["HTML", "CSS", "Javascript", "Vercel Deployment"],
+    github: "https://github.com/SAB1825/blog3-website",
+    demo: "https://blog3-website.vercel.app/",
+    featured: false,
+  },
+  {
+    id: 3,
+    title: "AI Video Generator",
+    description:
+      "An AI Video Generator which generates videos based on the text input. It uses the Remotion library to generate videos.",
+    image: "/assets/images/visuAI.png", 
+    tech: ["NextJS", "Clerk", "Remotion", "Typescript", "Drizzle", "Gemini API"],
+    github: "https://github.com/SAB1825/VisuAI",
+    demo: "https://visuai.sabaris.site/",
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "Image Identifier",
+    description:
+      "A simple image identifier app which uses the Gemini API to detect what kind of image it is.",
+    image: "/assets/images/imageiq.png", 
+    tech: ["Nextjs", "Gemini API", "Typescript"],
+    github: "https://github.com/SAB1825/imageIQ",
+    demo: "https://imageiq.sabaris.site/",
+    featured: true,
+  },
+  {
+    id: 4,
+    title: "Blog Website",
+    description:
+      "A Blog webiste which is made with Nextjs and Tailwind CSS. It has some stunning css with multipage function.",
+    image: "/assets/images/pBLog.png", 
+    tech: ["Nextjs", "Typescript"],
+    github: "https://github.com/SAB1825/blog2-website",
+    demo: "https://blogs.sabaris.site/",
+    featured: true,
+  },
+  {
+    id: 4,
+    title: "BIT Staff Quarters portal",
+    description:
+      "This project is build for managing the quarters detail where staff’s can create complaint and manage guest details. Where Admin can manage all the staff details.",
+    image: "/assets/images/bit.png", 
+    tech: ["Nextjs", "Typescript", "MongoDb", "Express", "Nodejs"],
+    github: "https://github.com/SAB1825/bit-frontend",
+    demo: "https://bitstaffqaurtersportal.sabaris.site/sign-in",
+    featured: true,
+  },
+]
+
+
+
+
+const ProjectsV2 = () => {
+  const [activeFilter, setActiveFilter] = useState("all")
+
+  const filteredProjects =
+  activeFilter === "all"
+  ? projectsData
+  : projectsData.filter((p) =>
+      p.tech.some((t) => t.toLowerCase() === activeFilter.toLowerCase())
+    );
+
+  const filters = ["all", "react", "nextjs", "html"]
+
   return (
-    <section id="project" className="max-w-container mx-auto lgl:px-20 py-24">
+    <section id="project" className="max-w-container mx-auto px-4 lgl:px-20 py-24">
       <SectionTitle title="Some Things I have Built" titleNo="02" />
-      {/* ============ project One Start here ================ */}
-      <div className="w-full flex flex-col items-center justify-center gap-28 mt-10">
-        <div className="flex flex-col xl:flex-row gap-6">
-          <a
-            className="w-full xl:w-1/2 h-auto relative group"
-            href="https://sabari-fitness.netlify.app"
-            target="_blank"
-          >
-            <div>
-              <Image
-                className="w-full h-full object-contain"
-                src={amazonImg}
-                alt="amazonImg"
-              />
-              <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
-            </div>
-          </a>
-          <div className="w-full xl:w-1/2 flex flex-col gap-6 lgl:justify-between items-end text-right xl:-ml-16 z-10">
-            <div>
-              <p className="font-titleFont text-textGreen text-sm tracking-wide">
-                Featured Project
-              </p>
-              <h3 className="text-2xl font-bold">Fitness  workout App</h3>
-            </div>
-            <p className="bg-[#112240] text-sm md:text-base p-2 md:p-6 rounded-md">
-              A fitness Excercise app which renders workouts from <a href=" https://rapidapi.com" className="text-textGreen">Rapid Api.</a>With the functionality to choose exercise categories and specific muscle groups, browse more than one thousand exercises with practical examples, pagination, exercise details, pull related videos from youtube, display similar exercises, and much more.
-            </p>
-            <ul className="text-xs md:text-sm font-titleFont tracking-wide flex gap-2 md:gap-5 justify-between text-textDark">
-              <li>React</li>
-              <li>Rapid api</li>
-              <li>Css</li>
-              
-              <li>Netlify Deployment</li>
-            </ul>
-            <div className="text-2xl flex gap-4">
-              <a
-                className="hover:text-textGreen duration-300"
-                href="https://github.com/SAB1825/fitness-website"
-                target="_blank"
-              >
-                <TbBrandGithub />
-              </a>
-              
-              <a
-                className="hover:text-textGreen duration-300"
-                href="https://sabari-fitness.netlify.app"
-                target="_blank"
-              >
-                <RxOpenInNewWindow />
-              </a>
-            </div>
-          </div>
-        </div>
-        {/* ============ project One End here ================== */}
-        {/* ============ project Two Start here ================ */}
-        <div className="flex flex-col xl:flex-row-reverse gap-6">
-          <a
-            className="w-full xl:w-1/2 h-auto relative group"
-            href="https://blog3-website.vercel.app/"
-            target="_blank"
-          >
-            <div>
-              <Image
-                className="w-full h-full object-contain"
-                src={cyberImg}
-                alt="cyberImg"
-              />
-              <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
-            </div>
-          </a>
-          <div className="w-full xl:w-1/2 flex flex-col gap-6 justify-between items-end text-right z-10">
-            <div>
-              <p className="font-titleFont text-textGreen text-sm tracking-wide">
-                Featured Project
-              </p>
-              <h3 className="text-2xl font-bold">Responsive Blog</h3>
-            </div>
-            <p className="text-sm md:text-base bg-[#112240] p-2 md:p-6 rounded-md xl:-mr-16">
-             A Responsive Blog which is made with <span className="text-textGreen">HTML and CSS</span> and some basic Javascript.It has some stunning css with multipage fuction.
-            </p>
-            <ul className="text-xs md:text-sm font-titleFont tracking-wide flex gap-2 md:gap-5 justify-between text-textDark">
-              <li>HTMl</li>
-              <li>CSS</li>
-              <li>Javascript</li>
-              <li>Vercel Deployment</li>
-              
-            </ul>
-            <div className="text-2xl flex gap-4">
-              <a
-                className="hover:text-textGreen duration-300"
-                href="https://github.com/SAB1825/blog3-website"
-                target="_blank"
-              >
-                <TbBrandGithub />
-              </a>
-              
-              <a
-                className="hover:text-textGreen duration-300"
-                href="https://blog3-website.vercel.app/"
-                target="_blank"
-              >
-                <RxOpenInNewWindow />
-              </a>
-            </div>
-          </div>
-        </div>
-        {/* ============ project Two End here ================== */}
-        {/* ============ project Three Start here ============== */}
-        <div className="flex flex-col xl:flex-row gap-6">
-          <a
-            className="w-full xl:w-1/2 h-auto relative group"
-            href="https://sabarisekar.netlify.app"
-            target="_blank"
-          >
-            <div>
-              <Image
-                className="w-full h-full object-contain"
-                src={noorShop}
-                alt="noorShop"
-              />
-              <div className="absolute w-full h-full bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"></div>
-            </div>
-          </a>
-          <div className="w-full xl:w-1/2 flex flex-col gap-6 justify-between items-end text-right xl:-ml-16 z-10">
-            <div>
-              <p className="font-titleFont text-textGreen text-sm tracking-wide">
-                Featured Project
-              </p>
-              <h3 className="text-2xl font-bold">Stunning Portfolio</h3>
-            </div>
-            <p className="text-sm md:text-base bg-[#112240] p-2 md:p-6 rounded-md">
-              A stunning portfolio website made with React js.Also have beautiful transition and animation with styled components.
-            </p>
-            <ul className="text-xs md:text-sm font-titleFont tracking-wide flex gap-2 md:gap-5 justify-between text-textDark">
-              <li>React</li>
-              <li>Framer-motion</li>
-              <li>CSS</li>
-              <li>Javascript</li>
-              <li>Netlify Deployment</li>
-            </ul>
-            <div className="text-2xl flex gap-4">
-              <a
-                className="hover:text-textGreen duration-300"
-                href="https://github.com/SAB1825/portfolio-website"
-                target="_blank"
-              >
-                <TbBrandGithub />
-              </a>
-             
-              <a
-                className="hover:text-textGreen duration-300"
-                href="https://sabarisekar.netlify.app"
-                target="_blank"
-              >
-                <RxOpenInNewWindow />
-              </a>
-            </div>
-          </div>
-        </div>
-        {/* ============ project Three End here ================== */}
-      </div>
-    </section>
-  );
-};
 
-export default Projects;
+      {/* Filter Buttons */}
+      <div className="flex flex-wrap gap-2 mt-8 mb-10 justify-center">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            onClick={() => setActiveFilter(filter)}
+            className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
+              activeFilter === filter ? "bg-textGreen text-bodyColor" : "bg-[#112240] text-textLight hover:bg-[#1d3a6a]"
+            }`}
+          >
+            {filter.charAt(0).toUpperCase() + filter.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        {filteredProjects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} variant="grid" />
+        ))}
+      </div>
+
+      
+      
+    </section>
+  )
+}
+
+export default ProjectsV2
+
